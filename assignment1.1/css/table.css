@@ -1,11 +1,10 @@
-
-table,td,tr{ 
-	border: 1px black solid;
-	border-collapse:collapse;
-	padding: 20px 40px 20px 40px;
-	margin :0px auto;
-	empty-cells: show;
+table, td, tr {
+  border: 1px black solid;
+  border-collapse: collapse;
+  padding: 20px 40px 20px 40px;
+  margin : 0px auto;
+  empty-cells: show;
 }
-.c1{
-	empty-cells: show;
+.c1 {
+  empty-cells: show;
 }
