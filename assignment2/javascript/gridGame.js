@@ -1,19 +1,18 @@
-function changeColor(elem) {
-  if(document.getElementById("red").checked){
-    elem.style.background = "red";
+function changeColor(element) {
+  if(document.getElementById("red").checked) {
+    element.style.background = "red";
   }
-  else if(document.getElementById("blue").checked){
-    elem.style.background = "blue";
+  else if(document.getElementById("blue").checked) {
+    element.style.background = "blue";
   }
-  if(document.getElementById("green").checked){
-    elem.style.background = "green";
-  }
-}
-function setBack(){ 
-  var classname = document.getElementsByClassName("grid-item");
-  for (var i = 0; i < classname.length; i++) {
-  classname[i].style.background = "grey";
+  if(document.getElementById("green").checked) {
+    element.style.background = "green";
   }
 }
 
-
+function setBack() {
+  var className = document.getElementsByClassName("grid-item");
+  for (var i = 0; i < className.length; i++) {
+    className[i].style.background = "grey";
+  }
+}
