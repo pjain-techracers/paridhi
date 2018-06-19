@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-api-middleware",
+  "version": "1.0.0",
+  "description": "consume campaign monitor api through api key and use middleware for admin",
+  "author": "paridhi",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "\"campaignMonitor middlewares\""
+  ],
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0"
+  }
+}
