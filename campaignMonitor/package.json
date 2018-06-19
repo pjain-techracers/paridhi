@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-api-creation",
+  "version": "1.0.0",
+  "description": "consume campaign monitor api through api key",
+  "author": "paridhi",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "paridhi"
+  },
+  "keywords": [
+    "\"campaignMonitor\""
+  ],
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
