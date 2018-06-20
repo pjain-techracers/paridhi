@@ -1,0 +1,37 @@
+//create table with terminal
+create database firstdb;
+//connect with database
+\c firstdb
+create table Project_Info ( 
+            ID serial primary key, 
+            name text, duration real, 
+            cost real);
+
+create table Employee_Info ( 
+            ID serial primary key, 
+            name character(30) not null, 
+            salary real );
+
+create table Emp_Contact ( 
+            Emp_ID integer REFERENCES employee_info(ID), 
+            Mobile_Number integer);
+
+create table Project_Employee (
+            Project_ID integer REFERENCES project_info(ID),
+            Emp_ID integer REFERENCES employee_info(ID));
+
+create table Role (
+            ID integer primary key,name text ,
+            description character(40));
+
+ALTER TABLE Project_Employee ADD COLUMN role integer REFERENCES role(ID);
+
+create table Employee_Manager ( 
+            Emp_ID integer REFERENCES employee_info(ID) ,
+            Manager_ID integer REFERENCES employee_info(ID));
+
+create table PIN_details ( 
+            PIN integer,
+            city text,
+            state text,
+            country text);
