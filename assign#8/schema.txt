@@ -35,3 +35,8 @@ create table PIN_details (
             city text,
             state text,
             country text);
+
+create table address_details (
+            id serial,
+            street varchar(40),
+            emp_id integer);

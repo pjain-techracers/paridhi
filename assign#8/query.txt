@@ -1,0 +1,14 @@
+//Fetch all non managers of a project with any id
+ select role from project_employee join role on role.id = project_employee.role where role.name!='manager';
+
+//Fetch all employees of a project grouped by their role in project
+ select emp_id,role from project_employee group by role,emp_id;
+
+//Fetch first Projects 5 starting with 'aa'
+ select name from project_info where name like 'aa%' limit 5;
+
+//Fetch first to fifth employee who are manager in atleast one of the projects
+ select emp_id from project_employee join role on role.id= project_employee.role and role.name= 'manager';
+
+//Fetch all the projects which were profitable to the company
+ select id from project_info inner join (select project_id,sum(salary) from project_employee join employee_info on employee_info.id =    project_employee.emp_id group by project_id) as a on project_info.id=a.project_id where (cost -(duration*a.sum))>0;
