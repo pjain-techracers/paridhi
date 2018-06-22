@@ -1,12 +1,10 @@
 function changeColor(element) {
-  if(document.getElementById("red").checked) {
-    element.style.background = "red";
+  try {
+    var color = document.querySelector('input[name=color]:checked').value;
+    element.style.background = color;
   }
-  else if(document.getElementById("blue").checked) {
-    element.style.background = "blue";
-  }
-  if(document.getElementById("green").checked) {
-    element.style.background = "green";
+  catch(e) {
+      alert("first choose any color ");
   }
 }
 
