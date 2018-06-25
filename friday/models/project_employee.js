@@ -1,5 +1,9 @@
-module.exports.project_employee = (sequelize, DataTypes) => {
-  var project_employee = sequelize.define('project_employee', 
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('apidb', 'postgres', 'test', {
+  dialect: 'postgres',
+  operatorsAliases: false 
+});
+const Project_Employee = sequelize.define('project_employee', 
     project_id : { 
       type: Sequelize.INTEGER ,
        references: {
@@ -28,3 +32,4 @@ module.exports.project_employee = (sequelize, DataTypes) => {
   return project_employee;
 }
 
+module.exports = Project_Employee;

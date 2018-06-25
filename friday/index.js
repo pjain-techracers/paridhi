@@ -2,6 +2,8 @@ const http = require('http');
 const app = require('./routes');
 const sequelize = require('sequelize');
 const server = http.createServer(app);
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
 
 

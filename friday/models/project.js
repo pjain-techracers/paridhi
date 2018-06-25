@@ -4,10 +4,12 @@ const sequelize = new Sequelize('apidb', 'postgres', 'test', {
   operatorsAliases: false 
 });
 
-const Role = sequelize.define('role', {
+const Projects = sequelize.define('project', {
     id : { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-    name: { type: Sequelize.STRING, allowNull: false},
-    description: Sequelize.STRING
+    name: { type: Sequelize.STRING },
+    duration: Sequelize.REAL,
+    cost: Sequelize.REAL 
   })
-}
-module.exports = Role;
+
+sequelize.sync();
+module.exports = Projects;
