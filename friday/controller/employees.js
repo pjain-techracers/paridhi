@@ -1,27 +1,28 @@
 var employees = require('../models/employees');
 
-console.log( typeof employees);
-
 exports.employeeList = (req,res) => {
-  employees.findAll().then(employees => {
-  	console.log(employees)
-    res.send(employees);
-    //res.send(JSON.parse(body))
+  let { page_size, page } = req.query;
+  employees.findAll({
+    limit: page_size,
+    offset: (page-1)*(page_size)
   })
+  .then(employees => {
+    res.send(employees);
+  })
+  .catch(() => console.log("error in displaying"));
 }
 
 exports.createEmployee = (req,res) => {
-  employees.create({id:req.body.id, name:req.body.name, salary:req.body.salary})
-    .then(() => {
-    	console.log("created");
-      res.send({id:req.body.id, name:req.body.name, salary:req.body.salary});
-    })
-}
-
-exports.getEmployeeById = (req,res) => {
- employees.findOne({ where: {id: req.params.id} }).then(employees=> {
-     res.send(employees);
-  // project will be the first entry of the Projects table with the title 'aProject' || null
+  let { id, name, salary } = req.body
+  employees.create({id:id, name: name, salary: salary})
+  .then(() => {
+    res.json(" rows created");
   })
 }
 
+exports.getEmployeeById = (req,res) => {
+  employees.findOne({ where: {id: req.params.id} })
+ .then(employees => {
+    res.send(employees);
+  })
+}
