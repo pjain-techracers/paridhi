@@ -1,42 +1,61 @@
+const _ = require('lodash')
 module.exports = {
-  secondLargest: function (array) {
+  secondLargest: (array) => {
+    if(!Array.isArray(array))
+      throw new Error(`must pass array as argument`)
+    if(array.some(isNaN))
+      throw new Error(`array must contain only numbers`)
+    if(array.length < 2)
+     throw new Error(`array size is less than 2`);
+    if(array.some((index) => {
+      if(index === null)
+        throw new Error(`array contains some null`)
+    }))
     var large = ( array[0] > array[1] ) ? array[0] : array[1] ;
     var secLarge = ( array[0] > array[1]) ? array[1] : array[0] ;
-    for(var i=2 ; i<array.length ; i++) {
-      if(array[i] > large) {
+    for(let index=2 ; index<array.length ; index++) {
+      if(array[index] > large) {
         secLarge = large ;
-        large = array[i] ;
+        large = array[index] ;
       }
-      else if( array[i] > secLarge && large != array[i])
-        secLarge = array[i] ;
+      else if( array[index] > secLarge && large != array[index])
+        secLarge = array[index] ;
     }
     return secLarge;
   } ,
 
-  calculateFrequency: function (string) {
-    var freq = {};
-    string.split("").forEach(function(s) {
-      if(s!=" " && s>='a' && s<='z')
-        freq[s] ? freq[s]++ : freq[s] = 1;
+  calculateFrequency: (string) => {
+    if(typeof string !== "string")
+      throw new Error(`input must be an string`);
+    if(!string.trim().length)
+      throw new Error(`input is empty string`);
+    let freq = {};
+    string.split("").forEach((char) => {
+      if(char!=" " && char>='a' && char<='z')
+        freq[char] ? freq[char]++ : freq[char] = 1;
     });
     return freq;
   } ,
 
   flatten: function flatten(unflatObject) {
-    var output={};
-    for(var i in unflatObject) {
-      if(!unflatObject.hasOwnProperty(i))
+    if(typeof unflatObject !== "object")
+      throw new Error(`input must be an object`);
+    if( _.isEmpty(unflatObject) )
+      throw new Error(`object is empty`);
+    let output = {};
+    for(let index in unflatObject) {
+      if(!unflatObject.hasOwnProperty(index))
         continue;
-      if((typeof unflatObject[i])==="object") { 
-        var flat = flatten(unflatObject[i]);
-        for (var x in flat) {
-          if(!flat.hasOwnProperty(x)) 
+      if((typeof unflatObject[index])==="object") { 
+        let flat = flatten(unflatObject[index]);
+        for (let key in flat) {
+          if(!flat.hasOwnProperty(key)) 
             continue;
-          output[i+'.'+x]=flat[x];
+          output[index+'.'+key]=flat[key];
         }
       }
       else 
-        output[i]= unflatObject[i];
+        output[index]= unflatObject[index];
     }
     return output;
   }
