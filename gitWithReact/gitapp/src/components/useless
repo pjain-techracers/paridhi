@@ -1,0 +1,125 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Tasks from '../components/Tasks'
+import Task from '../components/Tasks'
+import Home from '../components/Home'
+import ToDoApp from '../components/ToDoApp'
+import { Route} from 'react-router'
+import  from '../components/repos'
+import repos from '../components/repos'
+
+const RouteApp = () => (
+
+  <div>
+    <ul>
+     <li>
+        <Link to="/repos"> Repository</Link>
+      </li>
+      <li>
+        <Link to="/projects"> Projects </Link>
+      </li>
+      <li>
+        <Link to="/Employees"> Employees </Link>
+      </li>
+    </ul>
+    <hr/>
+
+    <Route path={`/repos`} component={repos} />
+    <Route path={`/projects`} component={projects} />
+    <Route path={`/Employees`} component={Employees} />
+  </div>
+)
+
+export default RouteApp
+
+
+
+
+
+               <Navbar >
+          <NavItem><Link to="/repos" activeClassName="active">Repository</Link></NavItem>
+          <NavItem><Link to="/projects" activeClassName="active">Projects</Link></NavItem>
+          <NavItem><Link to="/employees" activeClassName="active">Employees</Link></NavItem>
+          <hr/>
+          
+        </Navbar>
+
+
+
+        import React, { Component } from 'react';
+import {Link } from 'react-router-dom'
+import {Navbar, NavItem} from 'react-materialize';
+import { BrowserRouter as Router} from 'react-router-dom'
+import RepoList from './repoList'
+import { Route} from 'react-router'
+
+class Header extends Component {
+  render() {
+    return (
+      <div className='header'>
+      <h3 className='App'> Welcome To Virtual Git</h3>
+      <Router>
+      <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Git Options
+         <span class="caret"></span></button>
+         <ul class="dropdown-menu">
+           <li><Link to="/repos"  > Repository</Link></li>
+           <li><Link to="/projects" > Projects</Link></li>
+           <li><Link to="/emp"> Employees</Link></li>
+         </ul>
+         <Route path={`/repos`} component={RepoList} />
+       </div>
+
+       
+      </Router>
+      </div>
+      )
+  };
+}
+
+export default Header;
+
+constructor(props)
+ {
+   super(props);
+   this.state = { id: '',
+                  name : ''
+   };
+   this.handleChange = this.handleChange.bind(this);
+   this.handleSubmit = this.handleSubmit.bind(this)
+ }
+
+ handleChange(event) {
+   this.setState({[event.target.name]: event.target.value})
+ }
+
+
+ handleSubmit(event){
+   alert('this is the value' + this.state.id)
+   event.preventDefault();
+ }
+ componentDidMount() {
+  fetch('/projects')
+  .then(res => res.json())
+  .then(projects => this.setState({projects}, () => console.log("repos fecthed", projects)));
+ }
+
+ render() {
+   return (
+     <div className="App">
+       <header className="App-header">
+         <img src={logo} className="App-logo" alt="logo" />
+         <h1 className="App-title">Welcome to React</h1>
+       </header>
+       <p className="App-intro">
+         To get started, edit <code>src/App.js</code> and save to reload.
+       </p>
+       <form method="post" onSubmit={this.handleSubmit}>
+         <input type="text" placeholder="id" name="id" value={this.state.value} onChange={this.handleChange} required />
+         <input type="text" placeholder="name" name="name" value={this.state.name} onChange={this.handleChange} required />
+         <input type="Submit" name="Submit" value="Submit" />
+       </form>
+     </div>
+   );
+ }
+ <input type="text" ref="gitId" name='id' placeholder='write GIT username here' onKeyPress={this.handleKeyPress.bind(this)}/>
