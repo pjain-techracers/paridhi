@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class Repos extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      repos: [],
-  
-
+      repos: []
     }
   }
 
   componentDidMount() {
-    fetch('/repos')
+    fetch(`/${this.props.locate}`)
     .then(res =>res.json())
     .then(repos => this.setState({repos}, () => console.log("repos fetched", repos)));
   }
@@ -21,7 +20,6 @@ class Repos extends Component {
     console.log(event.target.name.value);
     console.log(event.target.value);
     console.log("++++++++++++++++++++++++++++")
-    //console.log(event.ta)
     fetch(`/repos/pjain-techracers/${event.target.value}`,{
       method: 'DELETE',
       headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -33,6 +31,7 @@ class Repos extends Component {
   render() {
     return (
       <div>
+      <Link to={`${this.props.match.url}/create`} className='btn btn-primary' >Create</Link>
       <h1> repos </h1>
       <ul>
       {this.state.repos.map(repo => 

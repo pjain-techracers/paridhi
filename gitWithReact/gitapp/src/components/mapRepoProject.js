@@ -2,23 +2,13 @@ import React, { Component } from 'react';
 import stringify from 'json-stringify';
 
 
-class App extends Component {
+class mapRepoProject extends Component {
 
   constructor(props)
   {
     super(props);
-    this.state = { id: '',
-                   name : '',
-                   projectID: '',
-                   empId: '',
-                   projectId: '',
-                   repoId: '',
-                   project: ''
-    };
+    this.state = { projectId: '', repoId: '' };
     this.handleChange = this.handleChange.bind(this);
-    this.addProject = this.addProject.bind(this);
-    this.deleteProject = this.deleteProject.bind(this);
-    this.mapEmpProject = this.mapEmpProject.bind(this);
     this.mapRepoProject = this.mapRepoProject.bind(this);
 
   }

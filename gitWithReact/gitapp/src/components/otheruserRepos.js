@@ -8,9 +8,7 @@ class OtherUserRepos extends Component {
       gitId:'',
       error:''
     }
-
   }
-
 
   handleKeyPress(event) {
     if (event.key === 'Enter') {
@@ -21,7 +19,6 @@ class OtherUserRepos extends Component {
       
     }
   }
-
 /*  componentDidMount() {
     console.log(this.state.Id)
     fetch(`${this.state.Id}/repos`)

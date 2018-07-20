@@ -123,3 +123,23 @@ constructor(props)
    );
  }
  <input type="text" ref="gitId" name='id' placeholder='write GIT username here' onKeyPress={this.handleKeyPress.bind(this)}/>
+
+
+in file header
+       <Router>
+        <div className="dropdown btn-group">
+          <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Git Options
+          <span className="caret"></span></button>
+          <ul className="dropdown-menu">
+            <li><Link to="/repos"  > Repository</Link></li>
+            <li><Link to="/projects" > Projects</Link></li>
+            <li><Link to="/emp"> Employees</Link></li>
+          </ul>       
+        </div>
+      </Router>
+
+
+const Routes = (props) => (
+
+
+)

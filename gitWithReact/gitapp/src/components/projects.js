@@ -65,6 +65,7 @@ class Projects extends Component {
       <div >   
         <div>
           <form method="post" onSubmit={this.addProject}>
+          <label> add new project</label>
             <input type="text" placeholder="id" name="id" value={this.state.id} onChange={this.handleChange} required />
             <input type="text" placeholder="project-name" name="name" value={this.state.name} onChange={this.handleChange} required />
             <input type="Submit" name="Submit" value="Add" />
@@ -72,12 +73,14 @@ class Projects extends Component {
         </div>
         <div>
           <form method="post" onSubmit={this.deleteProject}>
+          <label> delete project</label>
             <input type="text" placeholder="project-id" name="projectID" value={this.state.projectID} onChange={this.handleChange} required />
             <input type="Submit" name="Submit1" value="Delete"/>
           </form>
         </div>
         <div>
           <form method="post" onSubmit={this.mapEmpProject}>
+          <label> map employee project</label>
             <input type="text" placeholder="employee-id" name="empId" value={this.state.empId} onChange={this.handleChange} required />
             <input type="text" placeholder="project-id" name="projectId" value={this.state.projectId} onChange={this.handleChange} required />
             <input type="Submit" name="Submit1" value="Add"/>
@@ -89,7 +92,7 @@ class Projects extends Component {
             <input type="text" placeholder="project-id" name="project" value={this.state.project} onChange={this.handleChange} required />
             <input type="Submit" name="Submit1" value="Add"/>
           </form>
-        </div>     
+        </div> 
       </div>
     );
   }

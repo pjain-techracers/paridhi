@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import {Link } from 'react-router-dom'
-import { BrowserRouter as Router} from 'react-router-dom'
-import RepoOptions from './repoOptions'
-import { Route} from 'react-router'
-import Projects from './projects'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import Options from './options'
 
 class Header extends Component {
   render() {
     return (
       <div className='header text-center'>
-      <h3 > Welcome To Virtual Git</h3>
-      <Router>
-        <div className="dropdown btn-group">
-           <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Git Options
-           <span className="caret"></span></button>
-           <ul className="dropdown-menu">
-             <li><Link to="/repos"  > Repository</Link></li>
-             <li><Link to="/projects" > Projects</Link></li>
-             <li><Link to="/emp"> Employees</Link></li>
-           </ul>
-           
-           <Route path={`/repos`} component={RepoOptions} />
-           <Route path={`/projects`} component={Projects} />
-         </div>
-      </Router>
-      </div>
+        <nav className="navbar navbar-default">
+              <div className="container-fluid">
+                  <div className="navbar-header">
+                      <Link to ='/' className="navbar-brand">GIT</Link>
+                  </div>
+                  <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul className="nav navbar-nav">
+                       <li><Link to="/repos"  > Repository</Link></li>
+                       <li><Link to="/projects" > Projects</Link></li>
+                       <li><Link to="/emp"> Employees</Link></li>
+                       <li><Link to="/pulls"> Pull Requests</Link></li>
+                       <li><Link to="/commits"> Commits</Link></li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+            { this.props.children }
+        </div>
       )
   };
 }
