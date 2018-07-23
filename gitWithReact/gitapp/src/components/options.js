@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import { Route} from 'react-router'
-import repos from './repos'
+import List from './ListRepo'
 import Details from './details'
 
 import OtherUserRepos from './otheruserRepos'
@@ -39,7 +39,7 @@ import App from '../App'
         </ul>
         <button >  <Link to='/'> back to home </Link></button>
         <Route exact path={`/`} component={App} />
-        <Route  path={`${this.props.match.url}/details`} render = {(props) => <Details locate = {this.props.locate} {...props} /> } />
+        <Route path={`${this.props.match.url}/details`} render = {(props) => <Details locate = {this.props.locate} {...props} /> } />
         <Route path={`${this.props.match.url}/list`} render={(props) => <RemovePage locate = {this.props.locate} {...props} /> }/>
         <Route path={`${this.props.match.url}/projects/emp`} component = { mapEmpProject }/>
         <Route path={`${this.props.match.url}/projects/repos`} component = { mapRepoProject }/>

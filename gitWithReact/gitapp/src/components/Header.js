@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
-import Options from './options'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+
 
 class Header extends Component {
   render() {
@@ -10,15 +10,9 @@ class Header extends Component {
               <div className="container-fluid">
                   <div className="navbar-header">
                       <Link to ='/' className="navbar-brand">GIT</Link>
-                  </div>
-                  <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                      <ul className="nav navbar-nav">
-                       <li><Link to="/repos"  > Repository</Link></li>
-                       <li><Link to="/projects" > Projects</Link></li>
-                       <li><Link to="/emp"> Employees</Link></li>
-                       <li><Link to="/pulls"> Pull Requests</Link></li>
-                       <li><Link to="/commits"> Commits</Link></li>
-                      </ul>
+                      <Link to="/repos"  className="navbar-brand"> Repository</Link>
+                      <Link to="/projects" className="navbar-brand"> Projects</Link>
+                      <Link to="/emp" className="navbar-brand"> Employees</Link>
                   </div>
               </div>
           </nav>

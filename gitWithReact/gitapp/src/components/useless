@@ -143,3 +143,6 @@ const Routes = (props) => (
 
 
 )
+
+
+        <li key={repo.id} name={repo.name} value={repo.name} className="list-group-item">{repo.name}<button type="button" class="btn btn-danger" name={repo.name} value={repo.name} onClick={this.handleClick.bind(this)}>Delete</button> </li>
