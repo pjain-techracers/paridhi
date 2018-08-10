@@ -5,6 +5,7 @@
   "dependencies": {
     "eslint": "^5.1.0",
     "json-stringify": "^1.0.0",
+    "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-materialize": "^2.3.3",

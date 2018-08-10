@@ -21,6 +21,9 @@ li {
   font-size: large;
 }
 
+.radio-align {
+  text-align: right;
+}
 
 
 @keyframes App-logo-spin {

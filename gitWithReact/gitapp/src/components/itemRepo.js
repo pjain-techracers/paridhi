@@ -20,7 +20,7 @@ class Item extends Component {
    render() {
      return (
        <li className="list-group-item">
-          {this.props.item+" "}
+          {this.props.item + " "}
           <button className="btn btn-info" value = { this.props.item } onClick={this.listPR.bind(this)}> Pull Requests</button>
           <button className="btn btn-secondary" value = { this.props.item } onClick={this.listCommits.bind(this)}> Commits</button>
           <button className="btn-danger btn-xs" value = { this.props.item } onClick={this.removeItem.bind(this)}> Delete</button>
